@@ -26,4 +26,4 @@ scrape_configs:
         - localhost
       labels:
         job: varlogs
-        __path__: /data/log/*.log
+        __path__: /data/logs/*.log

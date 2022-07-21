@@ -11,7 +11,7 @@ func main() {
 	rawJSON := []byte(`{
 		"level": "debug",
 		"encoding": "json",
-		"outputPaths": ["stdout", "/tmp/app.log"],
+		"outputPaths": ["stdout", "/data/logs/app.log"],
 		"errorOutputPaths": ["stderr"],
 		"initialFields": {"foo": "bar"},
 		"encoderConfig": {
