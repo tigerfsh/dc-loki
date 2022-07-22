@@ -39,5 +39,11 @@ func main() {
 		})
 		sugar.Infow("health check", "path", "/ping")
 	})
+	r.GET("/alert", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "alert",
+		})
+		sugar.Errorw("xxx failed", "error_msg", "id must be string.")
+	})
 	r.Run("0.0.0.0:8080") // listen and serve on 0.0.0.0:8080
 }
