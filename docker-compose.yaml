@@ -167,3 +167,10 @@ services:
     command: -f json -d 1s -l
     networks:
       - loki
+
+  app:
+    image: app:1.0
+    ports:
+      - "8080:8080"
+    networks:
+      - loki 
