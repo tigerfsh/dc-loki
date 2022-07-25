@@ -54,14 +54,18 @@ services:
       - |
         mkdir -p /data/loki-data && \
         mkdir -p /data/loki-ruler && \
-        minio server /data
+        minio server --console-address ":9001" /data
     environment:
       - MINIO_ACCESS_KEY=loki
       - MINIO_SECRET_KEY=supersecret
       - MINIO_PROMETHEUS_AUTH_TYPE=public
       - MINIO_UPDATE=off
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+      - MINIO_SERVER_URL=http://localhost:9000
     ports:
-      - 9000
+      - "9000:9000"
+      - "9001:9001"
     volumes:
       - ./.data/minio:/data
     networks:
